@@ -23,8 +23,10 @@ function($http,_) {
       delete _jobs[job.id];
     };
     job.update = function(newAttrs) {
-      angular.copy(newAttrs,job);
-      console.log(job);
+      var that = this;
+      _.forEach(newAttrs, function(v,k) {
+        that[k] = v;
+      });
     };
     job.editState = false;
     job.toggleEditState = function() {

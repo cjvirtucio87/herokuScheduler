@@ -3,5 +3,5 @@ app.controller('JobsCtrl',
 function($scope, jobs, JobService) {
 
   $scope.jobs = jobs;
-
+  
 }]);

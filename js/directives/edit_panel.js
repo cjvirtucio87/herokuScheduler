@@ -7,14 +7,14 @@ PanelStateService) {
   return {
     templateUrl: 'js/directives/edit_panel.html',
     restrict: 'A',
-    scope: {
-      job: '='
-    },
     link: function(scope) {
       scope.saveJobEdit = function() {
-        scope.toggleEditState();
+        // Binding is lost when calling job.update?
         scope.job.update(scope.jobEdit);
         scope.jobEdit = {};
+        console.log("FROM EDIT PANEL");
+        console.log(scope.job);
+        scope.toggleEditState();
       };
       scope.toggleEditState = function() {
         scope.job.editState = scope.job.toggleEditState();
