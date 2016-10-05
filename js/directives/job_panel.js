@@ -10,6 +10,10 @@ app.directive('jobPanel', ['JobsService', function(JobsService) {
       scope.jobInfo = {
         job: JobsService.one(scope.jobId)
       };
+      scope.editState = false;
+      scope.toggleEditState = function() {
+        scope.editState = !scope.editState;
+      };
     }
   };
 }]);

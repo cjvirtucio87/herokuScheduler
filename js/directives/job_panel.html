@@ -25,13 +25,13 @@
             </tr>
           </theader>
           <tbody>
-            <tr show-panel job-id='jobId'></tr>
+            <tr ng-hide="editState" show-panel job-id='jobId'></tr>
           </tbody>
         </table>
       </div>
       <div class="card-footer">
         <span>
-          <button ng-click="">edit</button>
+          <button ng-click="toggleEditState()">edit</button>
         </span>
         <span>
           <button>remove</button>
