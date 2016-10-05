@@ -6,39 +6,32 @@ app.factory('NextDueService', function() {
 
   var NextDueService = {};
 
-  function _nextThirtyMinutes (dateObj) {
-    return new Date(dateObj.getTime() + 30 * 60000);
+  function _nextInterval(minutes) {
+    return function (dateObj) {
+      return new Date(dateObj.getTime() + minutes * 60000);
+    };
   }
 
-  function _nextTenMinutes (dateObj) {
-    return new Date(dateObj.getTime() + 10 * 60000);
+  var _nextThirtyMinutes = _nextInterval(30);
+  var _nextTenMinutes = _nextInterval(10);
+
+  function _makeRange (numOfItems, intervalFn) {
+    return function (lastRun) {
+      var lastRunObj = new Date(lastRun);
+      var output = [];
+      for (var i = 0; i < numOfItems; i++) {
+        lastRunObj = intervalFn(lastRunObj);
+        output.push(lastRunObj);
+      }
+      return output;
+    };
   }
 
-  function _makeDailyRange (lastRun) {
-    var dateLastRun = new Date(lastRun);
-    // There are 24 60 min intervals in a day.
-    // There are 2 30 min intervals in a day.
-    // (24 * 2) = 48 30 min intervals in a day.
-    var dates = [];
-    for (var i = 0; i < 48; i++) {
-      dateLastRun = _nextThirtyMinutes(dateLastRun);
-      dates.push(dateLastRun);
-    }
-    return dates;
-  }
-
-  function _makeHourlyRange (lastRun) {
-    var tenMinLastRun = new Date(lastRun);
-    // There are 24 60 min intervals in a day.
-    // There are 2 30 min intervals in a day.
-    // (24 * 2) = 48 30 min intervals in a day.
-    var tenMinIntervals = [];
-    for (var i = 0; i < 6; i++) {
-      tenMinLastRun = _nextTenMinutes(tenMinLastRun);
-      tenMinIntervals.push(tenMinLastRun);
-    }
-    return tenMinIntervals;
-  }
+  // There are 24 60 min intervals in a day.
+  // There are 2 30 min intervals in a day.
+  // (24 * 2) = 48 30 min intervals in a day.
+  var _makeDailyRange = _makeRange(48, _nextThirtyMinutes);
+  var _makeHourlyRange = _makeRange(6, _nextTenMinutes);
 
   NextDueService.getChoices = function (freqChoice, lastRun) {
     switch (freqChoice) {
