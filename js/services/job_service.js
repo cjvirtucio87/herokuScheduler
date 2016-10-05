@@ -1,10 +1,10 @@
 // Single source of truth.
-app.factory('JobsService', ['$http', '_',
+app.factory('JobService', ['$http', '_',
 function($http,_) {
 
   BASE_URI = 'js/data';
 
-  var JobsService = {};
+  var JobService = {};
 
   var _jobs = {};
 
@@ -61,7 +61,7 @@ function($http,_) {
     return _id + 1;
   }
 
-  JobsService.all = function() {
+  JobService.all = function() {
     // Limit API calls.
     if (_.isEmpty(_jobs)) {
       return $http.get(_buildURL('jobs'))
@@ -72,7 +72,7 @@ function($http,_) {
     }
   };
 
-  JobsService.one = function(id) {
+  JobService.one = function(id) {
     if (_.isEmpty(_jobs)) {
       return $http.get(_buildURL('jobs'))
         .then(_populateJobs)
@@ -83,7 +83,7 @@ function($http,_) {
     }
   };
 
-  JobsService.create = function(jobParams) {
+  JobService.create = function(jobParams) {
     var newJob = angular.copy(jobParams,{});
     var nextId = _nextId();
     newJob.id = nextId;
@@ -93,6 +93,6 @@ function($http,_) {
     return newJob;
   };
 
-  return JobsService;
+  return JobService;
 
 }]);

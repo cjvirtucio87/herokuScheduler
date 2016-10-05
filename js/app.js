@@ -34,8 +34,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
       },
       resolve: {
-        jobs: ['JobsService', function(JobsService) {
-          return JobsService.all();
+        jobs: ['JobService', function(JobService) {
+          return JobService.all();
         }]
       }
     });

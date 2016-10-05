@@ -1,5 +1,5 @@
 app.directive('showPanel',
-['JobsService', function(JobsService) {
+['JobService', function(JobService) {
   return {
     templateUrl: 'js/directives/show_panel.html',
     restrict: 'A',
@@ -8,7 +8,7 @@ app.directive('showPanel',
     },
     link: function(scope) {
       scope.jobInfo = {
-        job: JobsService.one(scope.jobId)
+        job: JobService.one(scope.jobId)
       };
     }
   };

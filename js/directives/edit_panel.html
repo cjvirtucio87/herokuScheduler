@@ -1,11 +1,17 @@
 <td>
-  <select>
-    {{ jobInfo.job.dynos }}
+  <select
+  ng-model='jobEdit.dynoSize'
+  >
+    <option ng-repeat="sizeChoice in dynoSizeChoices" value="{{ sizeChoice }}">
+      {{ sizeChoice }}
+    </option>
   </select>
 </td>
 <td>
-  <select>
-    {{ jobInfo.job.frequency }}
+  <select ng-model='jobEdit.frequency'>
+    <option ng-repeat="freqChoice in frequencyChoices" value="{{ freqChoice }}">
+      {{ freqChoice }}
+    </option>
   </select>
 </td>
 <td>

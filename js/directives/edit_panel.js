@@ -1,5 +1,6 @@
 app.directive('editPanel',
-['JobsService', function(JobsService) {
+['JobService', 'DynoService', 'FrequencyService',
+function(JobService, DynoService, FrequencyService) {
 
   return {
     templateUrl: 'js/directives/edit_panel.html',
@@ -9,8 +10,10 @@ app.directive('editPanel',
     },
     link: function(scope) {
       scope.jobInfo = {
-        job: JobsService.one(scope.jobId)
+        job: JobService.one(scope.jobId)
       };
+      scope.dynoSizeChoices = DynoService.getChoices();
+      scope.frequencyChoices = FrequencyService.getChoices();
     }
   };
 

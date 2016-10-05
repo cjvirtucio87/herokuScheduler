@@ -1,6 +1,6 @@
 app.controller('JobsCtrl',
-['$scope', 'jobs', 'JobsService',
-function($scope, jobs, JobsService) {
+['$scope', 'jobs', 'JobService',
+function($scope, jobs, JobService) {
 
   $scope.jobs = jobs;
 

@@ -1,4 +1,4 @@
-app.directive('jobPanel', ['JobsService', function(JobsService) {
+app.directive('jobPanel', ['JobService', function(JobService) {
   return {
     restrict: 'E',
     templateUrl: 'js/directives/job_panel.html',
@@ -8,7 +8,7 @@ app.directive('jobPanel', ['JobsService', function(JobsService) {
     link: function(scope) {
       // Maintain data-binding without having to pass down a bulky object.
       scope.jobInfo = {
-        job: JobsService.one(scope.jobId)
+        job: JobService.one(scope.jobId)
       };
       scope.editState = false;
       scope.toggleEditState = function() {
