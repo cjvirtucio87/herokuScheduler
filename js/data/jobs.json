@@ -1,7 +1,7 @@
 {
   "1": {
     "name": "rake email_users",
-    "dynosSize": "free",
+    "dynoSize": "free",
     "frequency": "daily",
     "lastRun": "Oct 04 2016 12:43:30 PDT",
     "nextDue": "Oct 05 2016 00:00:00 PDT"

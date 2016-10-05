@@ -7,13 +7,16 @@ PanelStateService) {
   return {
     templateUrl: 'js/directives/edit_panel.html',
     restrict: 'A',
+    scope: {
+      job: '='
+    },
     link: function(scope) {
       scope.saveJobEdit = function() {
-        scope.job.update(scope.jobEdit);
         scope.toggleEditState();
+        scope.job.update(scope.jobEdit);
+        scope.jobEdit = {};
       };
       scope.toggleEditState = function() {
-        scope.jobEdit = {};
         scope.job.editState = scope.job.toggleEditState();
       };
       scope.dynoSizeChoices = DynoService.getChoices();

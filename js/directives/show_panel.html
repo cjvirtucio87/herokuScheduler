@@ -1,13 +1,13 @@
 <button ng-click="toggleEditState()">edit</button>
 <td>
-  {{ job.dynoSize }}
+  {{ jobInfo.job.dynoSize }}
 </td>
 <td>
-  {{ job.frequency }}
+  {{ jobInfo.job.frequency }}
 </td>
 <td>
-  {{ job.lastRun | date:'shortTime'}}
+  {{ jobInfo.job.lastRun | date:'shortTime'}}
 </td>
 <td>
-  {{ job.nextDue | date:'shortTime'}}
+  {{ jobInfo.job.nextDue | date:'shortTime'}}
 </td>
