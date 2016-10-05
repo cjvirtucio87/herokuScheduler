@@ -1,0 +1,16 @@
+{
+  "1": {
+    "name": "some job",
+    "dynos": 2,
+    "frequency": "daily",
+    "lastRun": "Tue Oct 04 2016 12:43:30 GMT-0700 (PDT)",
+    "nextDue": "Wed Oct 05 2016 00:00:00 GMT-0700 (PDT)"
+  },
+  "2": {
+    "name": "some other job",
+    "dynos": 1,
+    "frequency": "hourly",
+    "lastRun": "Sun Nov 20 2016 05:00:00 GMT-0800",
+    "nextDue": "Sun Nov 20 2016 06:00:00 GMT-0800"
+  }
+}

@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <div class="card">
+      <div class="card">
+        <div class="card-header">
+          <h4>{{ job.name }}</h4>
+        </div>
+      </div>
+      <div class="card-block">
+        <table>
+          <theader>
+            <th>
+              DYNO SIZE
+            </th>
+            <th>
+              FREQUENCY
+            </th>
+            <th>
+              LAST RUN
+            </th>
+            <th>
+              NEXT DUE
+            </th>
+          </theader>
+          <tbody>
+            <td>
+              {{ job.dynos }}
+            </td>
+            <td>
+              {{ job.frequency }}
+            </td>
+            <td>
+              {{ job.lastRun }}
+            </td>
+            <td>
+              {{ job.nextDue }}
+            </td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
