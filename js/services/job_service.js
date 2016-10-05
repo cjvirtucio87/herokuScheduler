@@ -1,5 +1,5 @@
 // Single source of truth.
-app.factory('JobService', ['$http', '_',
+app.factory('JobService', ['$http', '_', '$filter',
 function($http,_) {
 
   BASE_URI = 'js/data';

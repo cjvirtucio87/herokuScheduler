@@ -1,4 +1,31 @@
-<form name="jobEdit">
+  <td>
+    <select ng-model='jobEdit.dynoSize'>
+      <option ng-repeat="sizeChoice in dynoSizeChoices" value="{{ sizeChoice }}">
+        {{ sizeChoice }}
+      </option>
+    </select>
+  </td>
+  <td>
+    <select ng-model='jobEdit.frequency'>
+      <option ng-repeat="freqChoice in frequencyChoices" value="{{ freqChoice }}">
+        {{ freqChoice }}
+      </option>
+    </select>
+  </td>
+  <td>
+    {{ job.lastRun }}
+  </td>
+  <td>
+    <select ng-model='jobEdit.nextDue'>
+      <option ng-repeat="nextDue in nextDueChoices" value="{{ nextDue }}">
+        {{ nextDue | date:'shortTime' }}
+      </option>
+    </select>
+  </td>
+
+
+
+<!-- <form name="jobEdit">
   <button ng-click="saveJobEdit()" type="submit">Save</button>
   <button ng-click="toggleEditState()">Cancel</button>
   <td>
@@ -21,8 +48,8 @@
   <td>
     <select ng-model='jobEdit.nextDue'>
       <option ng-repeat="nextDue in nextDueChoices" value="{{ nextDue }}">
-        {{ nextDue | date:'shortTime'}}
+        {{ nextDue | date:'shortTime' }}
       </option>
     </select>
   </td>
-</form>
+</form> -->

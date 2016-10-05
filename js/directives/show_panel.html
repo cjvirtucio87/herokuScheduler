@@ -1,4 +1,3 @@
-<button ng-click="toggleEditState()">edit</button>
 <td>
   {{ job.dynoSize }}
 </td>
@@ -9,5 +8,5 @@
   {{ job.lastRun | date:'shortTime'}}
 </td>
 <td>
-  {{ job.nextDue | scrubDate }}
+  {{ job.nextDue | date:'shortTime' }}
 </td>
