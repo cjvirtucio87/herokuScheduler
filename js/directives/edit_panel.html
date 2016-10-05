@@ -1,28 +1,30 @@
-<form ng-show="states.editState" name="jobEdit">
-  <td>
-    <select ng-model='jobEdit.dynoSize'>
-      <option ng-repeat="sizeChoice in dynoSizeChoices" value="{{ sizeChoice }}">
-        {{ sizeChoice }}
-      </option>
-    </select>
-  </td>
-  <td>
-    <select ng-model='jobEdit.frequency'>
-      <option ng-repeat="freqChoice in frequencyChoices" value="{{ freqChoice }}">
-        {{ freqChoice }}
-      </option>
-    </select>
-  </td>
-  <td>
-    {{ jobInfo.job.lastRun }}
-  </td>
-  <td>
-    <select ng-model='jobEdit.nextDue'>
-      <option ng-repeat="nextDue in nextDueChoices" value="{{ nextDue }}">
-        {{ nextDue | date:'shortTime'}}
-      </option>
-    </select>
-  </td>
+<div ng-show="states[jobId].editState">
+  <form name="jobEdit">
+    <td>
+      <select ng-model='jobEdit.dynoSize'>
+        <option ng-repeat="sizeChoice in dynoSizeChoices" value="{{ sizeChoice }}">
+          {{ sizeChoice }}
+        </option>
+      </select>
+    </td>
+    <td>
+      <select ng-model='jobEdit.frequency'>
+        <option ng-repeat="freqChoice in frequencyChoices" value="{{ freqChoice }}">
+          {{ freqChoice }}
+        </option>
+      </select>
+    </td>
+    <td>
+      {{ jobInfo.job.lastRun }}
+    </td>
+    <td>
+      <select ng-model='jobEdit.nextDue'>
+        <option ng-repeat="nextDue in nextDueChoices" value="{{ nextDue }}">
+          {{ nextDue | date:'shortTime'}}
+        </option>
+      </select>
+    </td>
 
-  <button ng-click="saveJobEdit()" type="submit">Save</button>
-</form>
+    <button ng-click="saveJobEdit()" type="submit">Save</button>
+  </form>
+</div>

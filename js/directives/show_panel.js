@@ -8,11 +8,11 @@ function(JobService, PanelStateService) {
       jobId: '='
     },
     link: function(scope) {
-      scope.states = PanelStateService.getStates();
+      scope.states = PanelStateService.getStates(scope.jobId);
       scope.jobInfo = {
         job: JobService.one(scope.jobId)
       };
-      scope.toggleEditState = PanelStateService.toggleEditState;
+      scope.toggleEditState = PanelStateService.toggleEditState(scope.jobId);
     }
   };
 }]);
