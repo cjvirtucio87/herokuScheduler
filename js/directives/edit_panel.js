@@ -15,6 +15,12 @@ PanelStateService) {
       scope.jobInfo = {
         job: JobService.one(scope.jobId)
       };
+      scope.saveJobEdit = function() {
+        console.log(scope.states.editState);
+        scope.toggleEditState();
+        JobService.saveEditData(scope.jobEdit);
+      };
+      scope.toggleEditState = PanelStateService.toggleEditState;
       scope.dynoSizeChoices = DynoService.getChoices();
       scope.frequencyChoices = FrequencyService.getChoices();
       // We want the choices in next run to change based on freqChoice.

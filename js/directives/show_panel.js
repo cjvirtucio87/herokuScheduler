@@ -12,6 +12,7 @@ function(JobService, PanelStateService) {
       scope.jobInfo = {
         job: JobService.one(scope.jobId)
       };
+      scope.toggleEditState = PanelStateService.toggleEditState;
     }
   };
 }]);

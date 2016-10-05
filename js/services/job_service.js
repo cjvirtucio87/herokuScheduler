@@ -10,6 +10,8 @@ function($http,_) {
 
   var _id;
 
+  var _editData = {};
+
   function _buildURL(resource) {
     return BASE_URI + '/' + resource + '.json';
   }
@@ -91,6 +93,11 @@ function($http,_) {
     _extend(newJob);
     _id++;
     return newJob;
+  };
+
+  JobService.saveEditData = function(data) {
+    angular.copy(data,_editData);
+    console.log(_editData);
   };
 
   return JobService;

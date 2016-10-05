@@ -1,4 +1,6 @@
-app.directive('jobPanel', ['JobService', function(JobService) {
+app.directive('jobPanel',
+['JobService', 'PanelStateService',
+function(JobService, PanelStateService) {
   return {
     restrict: 'E',
     templateUrl: 'js/directives/job_panel.html',
@@ -10,7 +12,7 @@ app.directive('jobPanel', ['JobService', function(JobService) {
       scope.jobInfo = {
         job: JobService.one(scope.jobId)
       };
-      scope.editState = false;
+      scope.states = PanelStateService.getStates();
       scope.toggleEditState = function() {
         scope.editState = !scope.editState;
       };
