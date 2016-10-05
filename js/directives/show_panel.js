@@ -4,10 +4,10 @@ function(JobService, PanelStateService) {
   return {
     templateUrl: 'js/directives/show_panel.html',
     restrict: 'A',
-    scope: true,
     link: function(scope) {
-      scope.states = PanelStateService.getStates(scope.jobId);
-      scope.toggleEditState = PanelStateService.toggleEditState(scope.jobId);
+      scope.toggleEditState = function() {
+        scope.job.editState = scope.job.toggleEditState();
+      };
     }
   };
 }]);

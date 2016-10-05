@@ -7,14 +7,15 @@ PanelStateService) {
   return {
     templateUrl: 'js/directives/edit_panel.html',
     restrict: 'A',
-    scope: true,
     link: function(scope) {
-      scope.states = PanelStateService.getStates(scope.jobId);
       scope.saveJobEdit = function() {
+        scope.job.update(scope.jobEdit);
         scope.toggleEditState();
-        JobService.saveEditData(scope.jobEdit);
       };
-      scope.toggleEditState = PanelStateService.toggleEditState(scope.jobId);
+      scope.toggleEditState = function() {
+        scope.jobEdit = {};
+        scope.job.editState = scope.job.toggleEditState();
+      };
       scope.dynoSizeChoices = DynoService.getChoices();
       scope.frequencyChoices = FrequencyService.getChoices();
       // We want the choices in next run to change based on freqChoice.

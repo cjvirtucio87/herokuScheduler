@@ -1,15 +1,13 @@
-<div ng-hide='states[jobId].editState'>
-  <button ng-click="toggleEditState()">edit</button>
-  <td>
-    {{ job.dynoSize }}
-  </td>
-  <td>
-    {{ job.frequency }}
-  </td>
-  <td>
-    {{ job.lastRun | date:'shortTime'}}
-  </td>
-  <td>
-    {{ job.nextDue | date:'shortTime'}}
-  </td>
-</div>
+<button ng-click="toggleEditState()">edit</button>
+<td>
+  {{ job.dynoSize }}
+</td>
+<td>
+  {{ job.frequency }}
+</td>
+<td>
+  {{ job.lastRun | date:'shortTime'}}
+</td>
+<td>
+  {{ job.nextDue | date:'shortTime'}}
+</td>

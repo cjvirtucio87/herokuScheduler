@@ -10,8 +10,6 @@ function($http,_) {
 
   var _id;
 
-  var _editData = {};
-
   function _buildURL(resource) {
     return BASE_URI + '/' + resource + '.json';
   }
@@ -25,9 +23,14 @@ function($http,_) {
       delete _jobs[job.id];
     };
     job.update = function(newAttrs) {
-      newAttrs.forEach(function(v,k) {
+      _.forEach(newAttrs, function(v,k) {
         job[k] = v;
       });
+    };
+    job.editState = false;
+    job.toggleEditState = function() {
+      job.editState = !job.editState;
+      return job.editState;
     };
     return job;
   }
@@ -93,11 +96,6 @@ function($http,_) {
     _extend(newJob);
     _id++;
     return newJob;
-  };
-
-  JobService.saveEditData = function(data) {
-    angular.copy(data,_editData);
-    console.log(_editData);
   };
 
   return JobService;
