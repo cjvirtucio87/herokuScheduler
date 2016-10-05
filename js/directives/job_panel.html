@@ -26,10 +26,12 @@
           </theader>
           <tbody>
             <tr ng-hide="editState" show-panel job-id='jobId'></tr>
+            <tr ng-show="editState" edit-panel job-id='jobId'></tr>
           </tbody>
         </table>
       </div>
       <div class="card-footer">
+        <!-- View changes based on state. -->
         <span>
           <button ng-click="toggleEditState()">edit</button>
         </span>
