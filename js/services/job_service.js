@@ -23,10 +23,10 @@ function($http,_) {
       delete _jobs[job.id];
     };
     job.update = function(newAttrs) {
-      var that = this;
-      _.forEach(newAttrs, function(v,k) {
-        that[k] = v;
-      });
+      var updateThis = _.bind(function(v,k) {
+        this[k] = v;
+      }, this);
+      _.forEach(newAttrs, updateThis);
     };
     job.editState = false;
     job.toggleEditState = function() {

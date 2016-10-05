@@ -9,11 +9,8 @@ PanelStateService) {
     restrict: 'A',
     link: function(scope) {
       scope.saveJobEdit = function() {
-        // Binding is lost when calling job.update?
         scope.job.update(scope.jobEdit);
         scope.jobEdit = {};
-        console.log("FROM EDIT PANEL");
-        console.log(scope.job);
         scope.toggleEditState();
       };
       scope.toggleEditState = function() {
