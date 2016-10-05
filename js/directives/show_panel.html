@@ -9,5 +9,5 @@
   {{ job.lastRun | date:'shortTime'}}
 </td>
 <td>
-  {{ job.nextDue | date:'shortTime'}}
+  {{ job.nextDue | scrubDate }}
 </td>
