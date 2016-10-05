@@ -1,12 +1,14 @@
-<td>
-  {{ jobInfo.job.dynoSize }}
-</td>
-<td>
-  {{ jobInfo.job.frequency }}
-</td>
-<td>
-  {{ jobInfo.job.lastRun }}
-</td>
-<td>
-  {{ jobInfo.job.nextDue }}
-</td>
+<div ng-hide='states.editState'>
+  <td>
+    {{ jobInfo.job.dynoSize }}
+  </td>
+  <td>
+    {{ jobInfo.job.frequency }}
+  </td>
+  <td>
+    {{ jobInfo.job.lastRun }}
+  </td>
+  <td>
+    {{ jobInfo.job.nextDue }}
+  </td>
+</div>

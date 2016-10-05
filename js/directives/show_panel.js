@@ -1,5 +1,6 @@
 app.directive('showPanel',
-['JobService', function(JobService) {
+['JobService', 'PanelStateService',
+function(JobService, PanelStateService) {
   return {
     templateUrl: 'js/directives/show_panel.html',
     restrict: 'A',
@@ -7,6 +8,7 @@ app.directive('showPanel',
       jobId: '='
     },
     link: function(scope) {
+      scope.states = PanelStateService.getStates();
       scope.jobInfo = {
         job: JobService.one(scope.jobId)
       };
