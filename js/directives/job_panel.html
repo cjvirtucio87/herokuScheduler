@@ -31,12 +31,14 @@
         </table>
       </div>
       <div class="card-footer">
-        <!-- View changes based on state. -->
+        <!-- View adapts to state. Only parent panel knows of state. -->
         <span>
-          <button ng-click="toggleEditState()">edit</button>
+          <button ng-hide="editState" ng-click="toggleEditState()">edit</button>
+          <button ng-show="editState" ng-click="toggleEditState()">save</button>
         </span>
         <span>
-          <button>remove</button>
+          <button ng-hide="editState" ng-click="toggleEditState()">remove</button>
+          <button ng-show="editState" ng-click="toggleEditState()">cancel</button>
         </span>
       </div>
     </div>
