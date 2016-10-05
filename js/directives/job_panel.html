@@ -3,40 +3,39 @@
     <div class="card">
       <div class="card">
         <div class="card-header">
-          <h4>{{ job.name }}</h4>
+          <h4>{{ jobInfo.job.name }}</h4>
         </div>
       </div>
       <div class="card-block">
         <table>
           <theader>
-            <th>
-              DYNO SIZE
-            </th>
-            <th>
-              FREQUENCY
-            </th>
-            <th>
-              LAST RUN
-            </th>
-            <th>
-              NEXT DUE
-            </th>
+            <tr>
+              <th>
+                DYNO SIZE
+              </th>
+              <th>
+                FREQUENCY
+              </th>
+              <th>
+                LAST RUN
+              </th>
+              <th>
+                NEXT DUE
+              </th>
+            </tr>
           </theader>
           <tbody>
-            <td>
-              {{ job.dynos }}
-            </td>
-            <td>
-              {{ job.frequency }}
-            </td>
-            <td>
-              {{ job.lastRun }}
-            </td>
-            <td>
-              {{ job.nextDue }}
-            </td>
+            <tr show-panel job-id='jobId'></tr>
           </tbody>
         </table>
+      </div>
+      <div class="card-footer">
+        <span>
+          <button ng-click="">edit</button>
+        </span>
+        <span>
+          <button>remove</button>
+        </span>
       </div>
     </div>
   </div>

@@ -39,6 +39,12 @@ function($http,_) {
     return angular.copy(newJobs,_jobs);
   }
 
+  function _pluck(id) {
+    return function() {
+      return _jobs[id.toString()];
+    };
+  }
+
   // Helper to grab new id.
   function _nextId () {
     if (!_id) {
@@ -63,6 +69,17 @@ function($http,_) {
         .catch(_logErrors);
     } else {
       return _jobs;
+    }
+  };
+
+  JobsService.one = function(id) {
+    if (_.isEmpty(_jobs)) {
+      return $http.get(_buildURL('jobs'))
+        .then(_populateJobs)
+        .then(_pluck(id))
+        .catch(_logErrors);
+    } else {
+      return _jobs[id.toString()];
     }
   };
 
