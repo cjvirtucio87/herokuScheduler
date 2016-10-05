@@ -10,17 +10,34 @@ app.factory('NextDueService', function() {
     return new Date(dateObj.getTime() + 30 * 60000);
   }
 
+  function _nextTenMinutes (dateObj) {
+    return new Date(dateObj.getTime() + 10 * 60000);
+  }
+
   function _makeDailyRange (lastRun) {
     var dateLastRun = new Date(lastRun);
     // There are 24 60 min intervals in a day.
     // There are 2 30 min intervals in a day.
     // (24 * 2) = 48 30 min intervals in a day.
     var dates = [];
-    for (var i = 0; i < 49; i++) {
+    for (var i = 0; i < 48; i++) {
       dateLastRun = _nextThirtyMinutes(dateLastRun);
       dates.push(dateLastRun);
     }
     return dates;
+  }
+
+  function _makeHourlyRange (lastRun) {
+    var tenMinLastRun = new Date(lastRun);
+    // There are 24 60 min intervals in a day.
+    // There are 2 30 min intervals in a day.
+    // (24 * 2) = 48 30 min intervals in a day.
+    var tenMinIntervals = [];
+    for (var i = 0; i < 6; i++) {
+      tenMinLastRun = _nextTenMinutes(tenMinLastRun);
+      tenMinIntervals.push(tenMinLastRun);
+    }
+    return tenMinIntervals;
   }
 
   NextDueService.getChoices = function (freqChoice, lastRun) {

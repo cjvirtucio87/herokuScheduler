@@ -16,7 +16,6 @@ PanelStateService) {
         job: JobService.one(scope.jobId)
       };
       scope.saveJobEdit = function() {
-        console.log(scope.states.editState);
         scope.toggleEditState();
         JobService.saveEditData(scope.jobEdit);
       };
@@ -24,8 +23,8 @@ PanelStateService) {
       scope.dynoSizeChoices = DynoService.getChoices();
       scope.frequencyChoices = FrequencyService.getChoices();
       // We want the choices in next run to change based on freqChoice.
-      // If user selects daily, choice is the HOUR of next DAY.
-      // Else if user selects hourly, choice is the TEN MIN INTERVAL of next HOUR.
+      // IF user selects daily THEN choice is the HOUR of next DAY.
+      // ELIF user selects hourly THEN choice is the TEN MIN INTERVAL of next HOUR.
       scope.nextDueChoices = NextDueService.getChoices(
         scope.jobEdit.frequency,
         'Wed Nov 30 2016 05:30:00 GMT-0800 (PST)'
