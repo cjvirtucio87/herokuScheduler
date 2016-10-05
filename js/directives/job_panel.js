@@ -5,14 +5,10 @@ function(JobService, PanelStateService) {
     restrict: 'E',
     templateUrl: 'js/directives/job_panel.html',
     scope: {
-      jobId: '='
+      job: '='
     },
     link: function(scope) {
-      // Maintain data-binding without having to pass down a bulky object.
-      scope.jobInfo = {
-        job: JobService.one(scope.jobId)
-      };
-      scope.states = PanelStateService.getStates(scope.jobId);
+      scope.states = PanelStateService.getStates(scope.job.id);
     }
   };
 }]);

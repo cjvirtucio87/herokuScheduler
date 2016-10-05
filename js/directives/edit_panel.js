@@ -7,14 +7,9 @@ PanelStateService) {
   return {
     templateUrl: 'js/directives/edit_panel.html',
     restrict: 'A',
-    scope: {
-      jobId: '='
-    },
+    scope: true,
     link: function(scope) {
       scope.states = PanelStateService.getStates(scope.jobId);
-      scope.jobInfo = {
-        job: JobService.one(scope.jobId)
-      };
       scope.saveJobEdit = function() {
         scope.toggleEditState();
         JobService.saveEditData(scope.jobEdit);
