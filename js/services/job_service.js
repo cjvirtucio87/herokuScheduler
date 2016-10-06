@@ -93,10 +93,10 @@ function($http,_) {
     var newJob = angular.copy(jobParams,{});
     var nextId = _nextId();
     newJob.id = nextId;
-    _jobs[nextId] = newJob;
+    _jobs[nextId.toString()] = newJob;
     _extend(newJob);
     _id++;
-    return newJob;
+    return Promise.resolve(newJob);
   };
 
   return JobService;
