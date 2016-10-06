@@ -7,6 +7,7 @@ function(JobService, DynoService, FrequencyService, NextDueService) {
     restrict: 'A',
     link: function(scope) {
       scope.saveJobEdit = function() {
+        console.log(scope.jobEdit);
         scope.job.update(scope.jobEdit);
         scope.jobEdit = {};
         scope.toggleEditState();
@@ -31,12 +32,12 @@ function(JobService, DynoService, FrequencyService, NextDueService) {
       // ELIF user selects hourly THEN choice is the TEN MIN INTERVAL of next HOUR.
       scope.nextDueChoices = NextDueService.getChoices(
         scope.jobEdit.frequency,
-        'Wed Nov 30 2016 05:30:00 GMT-0800 (PST)'
+        scope.job.lastRun
       );
       scope.$watch('jobEdit.frequency', function(newValue) {
         scope.nextDueChoices = NextDueService.getChoices(
           newValue,
-          'Wed Nov 30 2016 05:30:00 GMT-0800 (PST)'
+          scope.job.lastRun
         );
       });
     }

@@ -1,13 +1,13 @@
 <td>
   <select ng-model='jobEdit.dynoSize'>
-    <option ng-repeat="sizeChoice in dynoSizeChoices" value="{{ sizeChoice }}">
+    <option ng-repeat="sizeChoice in dynoSizeChoices" ng-value="{{ sizeChoice }}">
       {{ sizeChoice }}
     </option>
   </select>
 </td>
 <td>
   <select ng-model='jobEdit.frequency'>
-    <option ng-repeat="freqChoice in frequencyChoices" value="{{ freqChoice }}">
+    <option ng-repeat="freqChoice in frequencyChoices" ng-value="{{ freqChoice }}">
       {{ freqChoice }}
     </option>
   </select>
@@ -17,7 +17,7 @@
 </td>
 <td>
   <select ng-model='jobEdit.nextDue'>
-    <option ng-repeat="nextDue in nextDueChoices" value="{{ nextDue }}">
+    <option ng-repeat="nextDue in nextDueChoices" ng-value="{{ nextDue }}">
       {{ nextDue | date:'shortTime' }}
     </option>
   </select>
