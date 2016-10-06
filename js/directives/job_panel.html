@@ -37,10 +37,11 @@
             </table>
             <!-- Buttons for show directive. -->
             <button ng-hide="job.editState" ng-click="toggleEditState()">edit</button>
+            <button ng-hide="job.editState" ng-click="removeJob()">remove</button>
 
             <!-- Buttons for edit directive. -->
-            <button ng-show="job.editState" ng-click="saveJobEdit()" type="submit">Save</button>
-            <button ng-show="job.editState" ng-click="cancelEdit()">Cancel</button>
+            <button ng-show="job.editState" ng-click="saveJobEdit()" type="submit">save</button>
+            <button ng-show="job.editState" ng-click="cancelEdit()">cancel</button>
 
         </div>
         <div class="card-footer">

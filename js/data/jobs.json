@@ -1,6 +1,7 @@
 {
   "1": {
     "name": "rake email_users",
+    "id": 1,
     "dynoSize": "free",
     "frequency": "daily",
     "lastRun": "Oct 04 2016 12:43:30 PDT",
@@ -8,6 +9,7 @@
   },
   "2": {
     "name": "rake recommend_activities",
+    "id": 2,
     "dynoSize": "free",
     "frequency": "hourly",
     "lastRun": "Nov 20 2016 05:00:00 GMT-0800",

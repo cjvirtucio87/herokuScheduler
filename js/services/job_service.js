@@ -54,12 +54,6 @@ function($http,_) {
     return angular.copy(newJobs,_jobs);
   }
 
-  function _pluck(id) {
-    return function() {
-      return _jobs[id.toString()];
-    };
-  }
-
   // Helper to grab new id.
   function _nextId () {
     if (!_id) {

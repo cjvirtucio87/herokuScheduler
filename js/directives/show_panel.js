@@ -8,9 +8,9 @@ function(JobService, PanelStateService) {
       scope.toggleEditState = function() {
         scope.job.editState = scope.job.toggleEditState();
       };
-      // scope.$watch('job', function(newValue) {
-      //   console.log(scope.job);
-      // });
+      scope.removeJob = function () {
+        scope.job.destroy();
+      };
     }
   };
 }]);
