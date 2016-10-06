@@ -13,6 +13,14 @@ PanelStateService) {
         scope.jobEdit = {};
         scope.toggleEditState();
       };
+      scope.cancelEdit = function() {
+        // Destroy, if not yet persisted.
+        if (!scope.job.persisted) {
+          scope.job.destroy();
+        } else {
+          scope.toggleEditState();
+        }
+      };
       scope.toggleEditState = function() {
         scope.job.editState = scope.job.toggleEditState();
       };

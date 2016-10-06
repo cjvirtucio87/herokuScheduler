@@ -27,8 +27,17 @@ function($http,_) {
         this[k] = v;
       }, this);
       _.forEach(newAttrs, updateThis);
+      // Persist, if not yet persisted, as in a new job.
+      if (!this.persisted) {
+        this.persisted = true;
+      }
     };
+    // New jobs should begin in an editState.
     job.editState = job.editState || false;
+    // Jobs from the API should have persisted set to true.
+    if (!_.has(job, 'persisted')) {
+      job.persisted = true;
+    }
     job.toggleEditState = function() {
       job.editState = !job.editState;
       return job.editState;
@@ -96,7 +105,7 @@ function($http,_) {
     _jobs[nextId.toString()] = newJob;
     _extend(newJob);
     _id++;
-    return Promise.resolve(newJob);
+    return newJob;
   };
 
   return JobService;

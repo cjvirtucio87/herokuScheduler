@@ -7,10 +7,5 @@ function(JobService, PanelStateService) {
     scope: {
       job: '='
     },
-    link: function(scope) {
-      // scope.$watch('job', function(newValue) {
-      //   console.log(newValue);
-      // });
-    }
   };
 }]);

@@ -8,7 +8,7 @@
   },
   "2": {
     "name": "rake recommend_activities",
-    "dynosSize": "free",
+    "dynoSize": "free",
     "frequency": "hourly",
     "lastRun": "Nov 20 2016 05:00:00 GMT-0800",
     "nextDue": "Nov 20 2016 06:00:00 GMT-0800"

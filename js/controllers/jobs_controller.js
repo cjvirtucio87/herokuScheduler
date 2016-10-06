@@ -9,7 +9,8 @@ function($scope, jobs, JobService) {
     frequency: 'daily',
     lastRun: 'never',
     nextDue: Date.now,
-    editState: true
+    editState: true,
+    persisted: false
   };
 
   $scope.addJob = function() {
@@ -19,7 +20,9 @@ function($scope, jobs, JobService) {
       dynoSize: 'free',
       frequency: 'daily',
       lastRun: 'never',
-      nextDue: Date.now
+      nextDue: Date.now,
+      editState: true,
+      persisted: false
     };
   };
 
