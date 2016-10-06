@@ -1,8 +1,6 @@
 app.directive('editPanel',
 ['JobService', 'DynoService', 'FrequencyService', 'NextDueService',
-'PanelStateService',
-function(JobService, DynoService, FrequencyService, NextDueService,
-PanelStateService) {
+function(JobService, DynoService, FrequencyService, NextDueService) {
 
   return {
     templateUrl: 'js/directives/edit_panel.html',
@@ -12,6 +10,7 @@ PanelStateService) {
         scope.job.update(scope.jobEdit);
         scope.jobEdit = {};
         scope.toggleEditState();
+        scope.toggleNewJobState();
       };
       scope.cancelEdit = function() {
         // Destroy, if not yet persisted.
@@ -20,6 +19,7 @@ PanelStateService) {
         } else {
           scope.toggleEditState();
         }
+        scope.toggleNewJobState();
       };
       scope.toggleEditState = function() {
         scope.job.editState = scope.job.toggleEditState();

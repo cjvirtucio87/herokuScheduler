@@ -2,6 +2,10 @@ app.controller('JobsCtrl',
 ['$scope', 'jobs', 'JobService',
 function($scope, jobs, JobService) {
 
+  $scope.newJobState = {
+    state: false
+  };
+
   $scope.jobs = jobs;
   $scope.jobParams = {
     name: '',
@@ -14,6 +18,7 @@ function($scope, jobs, JobService) {
   };
 
   $scope.addJob = function() {
+    $scope.newJobState.state = true;
     JobService.create($scope.jobParams);
     $scope.jobParams = {
       name: '',
@@ -25,5 +30,9 @@ function($scope, jobs, JobService) {
       persisted: false
     };
   };
+
+  $scope.$on('toggledNewJobState', function() {
+    $scope.newJobState.state = false;
+  });
 
 }]);

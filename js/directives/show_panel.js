@@ -1,6 +1,6 @@
 app.directive('showPanel',
-['JobService', 'PanelStateService',
-function(JobService, PanelStateService) {
+['JobService',
+function(JobService) {
   return {
     templateUrl: 'js/directives/show_panel.html',
     restrict: 'A',

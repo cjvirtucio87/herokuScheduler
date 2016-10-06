@@ -1,10 +1,17 @@
 <div class="row">
   <div ng-repeat="(id, job) in jobs">
-    <job-panel job='job'></job-panel>
+    <job-panel
+    job='job'>
+    </job-panel>
   </div>
 </div>
 <div class="row">
   <div class="col-md-6 offset-md-3">
-    <button style="width:100%" ng-click="addJob()">Add Job</button>
+    <button
+    style="width:100%"
+    ng-hide="newJobState.state"
+    ng-click="addJob()">
+    Add Job
+  </button>
   </div>
 </div>
