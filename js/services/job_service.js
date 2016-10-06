@@ -28,7 +28,7 @@ function($http,_) {
       }, this);
       _.forEach(newAttrs, updateThis);
     };
-    job.editState = false;
+    job.editState = job.editState || false;
     job.toggleEditState = function() {
       job.editState = !job.editState;
       return job.editState;
@@ -60,7 +60,7 @@ function($http,_) {
         return _id;
       } else {
         // Max among existing ids.
-        _id = _.max(Object.keys(response.data));
+        _id = _.max(Object.keys(_jobs));
       }
       return _id + 1;
     }

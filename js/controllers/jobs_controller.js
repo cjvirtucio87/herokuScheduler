@@ -8,7 +8,8 @@ function($scope, jobs, JobService) {
     dynoSize: 'free',
     frequency: 'daily',
     lastRun: 'never',
-    nextDue: Date.now
+    nextDue: Date.now,
+    editState: true
   };
 
   $scope.addJob = function() {
