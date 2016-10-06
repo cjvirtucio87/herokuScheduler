@@ -1,45 +1,51 @@
 <div class="row">
   <div class="col-md-6 offset-md-3">
     <div class="card">
-      <div class="card">
-        <div class="card-header">
-          <h4>{{ job.name }}</h4>
+      <form name="jobEdit">
+        <div class="card">
+          <div class="card-header">
+            <h4 ng-hide='job.editState'>{{ job.name }}</h4>
+            <input
+            ng-show='job.editState'
+            type='text'
+            placeholder='rake do something'
+            ng-model='jobEdit.name'>
+          </div>
         </div>
-      </div>
-      <div class="card-block">
-        <form name="jobEdit">
-          <table>
-            <theader>
-              <tr>
-                <th>
-                  DYNO SIZE
-                </th>
-                <th>
-                  FREQUENCY
-                </th>
-                <th>
-                  LAST RUN
-                </th>
-                <th>
-                  NEXT DUE
-                </th>
-              </tr>
-            </theader>
-            <tbody>
-              <tr ng-hide="job.editState" show-panel job="job"></tr>
-              <tr ng-show="job.editState" edit-panel job="job"></tr>
-            </tbody>
-          </table>
-          <!-- Buttons for show directive. -->
-          <button ng-hide="job.editState" ng-click="toggleEditState()">edit</button>
+        <div class="card-block">
+            <table>
+              <theader>
+                <tr>
+                  <th>
+                    DYNO SIZE
+                  </th>
+                  <th>
+                    FREQUENCY
+                  </th>
+                  <th>
+                    LAST RUN
+                  </th>
+                  <th>
+                    NEXT DUE
+                  </th>
+                </tr>
+              </theader>
+              <tbody>
+                <tr ng-hide="job.editState" show-panel job="job"></tr>
+                <tr ng-show="job.editState" edit-panel job="job"></tr>
+              </tbody>
+            </table>
+            <!-- Buttons for show directive. -->
+            <button ng-hide="job.editState" ng-click="toggleEditState()">edit</button>
 
-          <!-- Buttons for edit directive. -->
-          <button ng-show="job.editState" ng-click="saveJobEdit()" type="submit">Save</button>
-          <button ng-show="job.editState" ng-click="cancelEdit()">Cancel</button>
-        </form>
-      </div>
-      <div class="card-footer">
-      </div>
+            <!-- Buttons for edit directive. -->
+            <button ng-show="job.editState" ng-click="saveJobEdit()" type="submit">Save</button>
+            <button ng-show="job.editState" ng-click="cancelEdit()">Cancel</button>
+
+        </div>
+        <div class="card-footer">
+        </div>
+      </form>
     </div>
   </div>
 </div>
