@@ -1,4 +1,3 @@
-// Single source of truth.
 app.factory('JobService', ['$http', '_', '$filter',
 function($http,_) {
 

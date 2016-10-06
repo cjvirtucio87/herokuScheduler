@@ -1,0 +1,24 @@
+body {
+  
+}
+
+.btn-add {
+  background: #990099;
+}
+
+.btn-edit {
+  border-color: #990099;
+  color: #990099;
+}
+
+.btn-remove {
+  border-color: transparent;
+  color:  #ffccff;
+}
+
+.btn-save {
+  background: #990099;
+}
+
+/* heroku purple */
+/*#990099*/
